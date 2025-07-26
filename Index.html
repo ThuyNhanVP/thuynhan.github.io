@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trần Nguyễn Thụy Nhân - IT Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-bar {
+            width: 0%;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <!-- Flex container -->
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <h1 class="text-xl font-bold text-gradient">Trần Nguyễn Thụy Nhân</h1>
+
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 transition duration-300">Giới
+                        thiệu</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-purple-600 transition duration-300">Kỹ
+                        năng</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-purple-600 transition duration-300">Dự
+                        án</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 transition duration-300">Liên
+                        hệ</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu" class="focus:outline-none">
+                        <svg class="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu dropdown (moved outside the flex row) -->
+            <div id="mobile-menu-panel"
+                class="md:hidden hidden flex flex-col items-start space-y-4 mt-4 bg-white shadow-lg rounded-xl p-4 transition-all duration-300">
+                <a href="#about"
+                    class="nav-link text-gray-800 hover:text-purple-600 transition duration-300 w-full">Giới thiệu</a>
+                <a href="#skills" class="nav-link text-gray-800 hover:text-purple-600 transition duration-300 w-full">Kỹ
+                    năng</a>
+                <a href="#projects"
+                    class="nav-link text-gray-800 hover:text-purple-600 transition duration-300 w-full">Dự án</a>
+                <a href="#contact"
+                    class="nav-link text-gray-800 hover:text-purple-600 transition duration-300 w-full">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center text-white">
+        <div class="text-center px-4 fade-in">
+            <div class="w-32 h-32 bg-white/20 rounded-full mx-auto mb-8 flex items-center justify-center">
+                <img style="border-radius: 100%; max-width: 150%; height: auto; object-fit: cover;" src="img/avt.png"
+                    alt="tran-nguyen-thuy-nhan">
+            </div>
+            <h1 style="margin-top: 60px;" class="text-4xl md:text-6xl font-bold mb-4">Trần Nguyễn Thụy Nhân</h1>
+            <p class="text-xl md:text-2xl mb-6 opacity-90">Sinh viên Công nghệ thông tin</p>
+            <p class="text-lg mb-8 opacity-80">Đại học Kinh Doanh và Công Nghệ Hà Nội (2023–2028)</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about"
+                    class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Tìm hiểu thêm
+                </a>
+                <a href="#contact"
+                    class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    Liên hệ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Giới thiệu bản thân</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-8 rounded-2xl">
+                        <div class="text-6xl mb-4">🎓</div>
+                        <h3 class="text-2xl font-bold mb-4">Thông tin học tập</h3>
+                        <div class="space-y-3">
+                            <p><span class="font-semibold">Ngành học:</span> Công nghệ thông tin</p>
+                            <p><span class="font-semibold">Trường:</span> Đại học Kinh Doanh và Công Nghệ Hà Nội</p>
+                            <p><span class="font-semibold">Thời gian:</span> 2023 - 2028</p>
+                            <p><span class="font-semibold">GPA hiện tại:</span> <span
+                                    class="text-green-600 font-bold">3.55/4.0</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Mục tiêu nghề nghiệp</h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        Tôi đang theo đuổi mục tiêu trở thành một <span class="font-semibold text-purple-600">lập trình
+                            viên phần mềm</span>
+                        và <span class="font-semibold text-purple-600">data engineer</span> trong tương lai. Với nền
+                        tảng kiến thức vững chắc
+                        và đam mê công nghệ, tôi luôn tìm tòi học hỏi những công nghệ mới để phát triển bản thân.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Tư duy
+                            logic</span>
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Giải quyết
+                            vấn đề</span>
+                        <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">Học hỏi
+                            nhanh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Kỹ năng</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 text-gray-800 text-sm">
+                <!-- Ngôn ngữ lập trình -->
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-4">Ngôn ngữ lập trình</h3>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li>
+                            <strong>C++:</strong> Thành thạo trong việc xử lý thuật toán, cấu trúc dữ liệu, và lập trình
+                            hướng đối tượng. Đã thực hiện các bài tập lớn với ngôn ngữ này.
+                        </li>
+                        <li>
+                            <strong>Python:</strong> Biết sử dụng các cấu trúc điều khiển, hàm, và thao tác với chuỗi,
+                            danh sách, từ điển. Có kinh nghiệm dùng thư viện Pandas để đọc và xử lý dữ liệu từ các file
+                            như CSV: lọc, nhóm, điền giá trị thiếu, sắp xếp và trực quan hóa dữ liệu cơ bản.
+                        </li>
+                        <li>
+                            <strong>PHP:</strong> Biết cách xây dựng trang web động và API đơn giản, kết hợp với MySQL
+                            để xử lý dữ liệu phía máy chủ.
+                        </li>
+                        <li>
+                            <strong>VB.NET:</strong> Có kinh nghiệm xây dựng phần mềm quản lý sử dụng WinForms, thao tác
+                            với cơ sở dữ liệu, giao diện người dùng và xử lý sự kiện.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Web & Cơ sở dữ liệu -->
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-4">Web & Cơ sở dữ liệu</h3>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li>
+                            <strong>HTML/CSS:</strong> Sử dụng tốt để xây dựng giao diện web responsive, thành thạo
+                            Flexbox và Grid, chú trọng thiết kế UI rõ ràng, dễ sử dụng.
+                        </li>
+                        <li>
+                            <strong>MySQL:</strong> Thành thạo ngôn ngữ SQL, biết cách thiết kế CSDL quan hệ, thực hiện
+                            các truy vấn phức tạp như JOIN, GROUP BY, và quản lý dữ liệu hiệu quả.
+                        </li>
+                        <li>
+                            <strong>JavaScript:</strong> Sử dụng được để xử lý sự kiện phía client, làm việc với DOM,
+                            viết các đoạn script tương tác đơn giản và kết nối API.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">Dự án nổi bật</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="project-card bg-white rounded-2xl shadow-lg p-8 border fade-in">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-2xl font-bold mb-4">Hệ thống quản lý tiệm sách</h3>
+                    <p class="text-gray-600 mb-4">Ứng dụng desktop được phát triển bằng VB.NET và SQL Server</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2">Chức năng chính:</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Quản lý thông tin sách (thêm, sửa, xóa, tìm kiếm)</li>
+                            <li>• Quản lý tài khoản admin</li>
+                            <li>• Xử lý hóa đơn</li>
+                            <li>• Quản lý kho và tồn kho</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">VB.NET</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">SQL Server</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs">Desktop App</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-2xl shadow-lg p-8 border fade-in">
+                    <div class="text-4xl mb-4">👟</div>
+                    <h3 class="text-2xl font-bold mb-4">Website bán giày dép</h3>
+                    <p class="text-gray-600 mb-4">Website thương mại điện tử</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2">Chức năng chính:</h4>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Hiển thị sản phẩm </li>
+                            <li>• Giỏ hàng và thanh toán trực tuyến</li>
+                            <li>• Đăng ký/đăng nhập người dùng</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs">PHP</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Liên hệ với tôi</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-8"></div>
+                <p class="text-xl mb-12 opacity-90">Sẵn sàng cho cơ hội mới và thử thách trong lĩnh vực IT</p>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                        <div class="text-3xl mb-4">📧</div>
+                        <h3 class="font-semibold mb-2">Email</h3>
+                        <p class="opacity-80">2005thuynhan@gmail.com</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                        <div class="text-3xl mb-4">📱</div>
+                        <h3 class="font-semibold mb-2">Điện thoại</h3>
+                        <p class="opacity-80">0965 027 644</p>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                        <div class="text-3xl mb-4">📍</div>
+                        <h3 class="font-semibold mb-2">Địa chỉ</h3>
+                        <p class="opacity-80">Hà Nội, Việt Nam</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="CvIntern_TranNguyenThuyNhan.pdf" target="_blank"
+                        class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        Xem CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Trần Nguyễn Thụy Nhân. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenuPanel.classList.toggle('hidden');
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'964bcb7bd33a90e4',t:'MTc1MzQ0Nzk1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
